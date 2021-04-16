@@ -3,15 +3,263 @@
 
     <section>
 
+      <Heading size="lg">Form &amp; Inputs</Heading>
+
+      <Spacer size="lg" />
+      <div>
+        <div style="width:100%">
+          <Input
+            icon="user"
+            size="sm"
+            label="Nome completo"
+            placeholder="Bastião da Rocha"
+            alignment="horizontal"
+          />
+          <Spacer size="lg" />
+          <Input
+            icon="user"
+            label="Seguradora XYZ"
+            placeholder="Bastião da Rocha"
+            alignment="horizontal"
+          />
+          <Spacer size="lg" />
+          <Input
+            v-model="email"
+            icon="mail"
+            size="lg"
+            label="Email cadastrado"
+            placeholder="email@example.com"
+            alignment="horizontal"
+          />
+          <Spacer size="lg" />
+        </div>
+        
+        <Spacer size="lg" />
+        <div style="width:100%">
+          <Input placeholder="Just input, no label"/>
+          <Input
+            v-model="email"
+            icon="user"
+            size="sm"
+            label="Usuário"
+            placeholder="email@example.com"
+            description="This is an error message."
+            alignment="horizontal"
+            :labelWidth="333"
+          />
+          <Input
+            v-model="email"
+            icon="user"
+            size="lg"
+            label="Usuário"
+            placeholder="email@example.com"
+            description="This is an error message."
+            alignment="horizontal"
+          />
+          <Input
+            v-model="email"
+            icon="user"
+            label="Usuário"
+            status="error"
+            placeholder="email@example.com"
+            description="This is an error message."
+          />
+          <Input
+            v-model="email"
+            icon="user"
+            label="Usuário"
+            status="success"
+            placeholder="email@example.com"
+            description="This is a success message."
+          />
+          <Input
+            v-model="email"
+            icon="archive"
+            label="Usuário"
+            status="warning"
+            placeholder="email@example.com"
+            description="This is a warning message."
+          />
+          <Input
+            v-model="email"
+            validate="required|email"
+            icon="box"
+            label="Input disabled"
+            disabled
+            placeholder="email@example.com"
+          />
+          <Input
+            v-model="form.email"
+            validate="required|email"
+            label="Password"
+            description="Must be 6 caracters minimum."
+          />
+          <InputPassword
+            v-model="form.password"
+            validate="required|min:6"
+            placeholder="Thats a placeholder"
+            label="Confirm password"
+          />
+          <Button label="Reset" @click="reset" />
+          <Button label="Submit form" @click="submit" />
+        </div>
+        <Spacer size="sm"/>
+
+      </div>
+
+      <Heading size="lg">Button Group</Heading>
+
+      <Spacer size="lg" />
+      <div style="display: flex; justify-content: space-even; align-items: flex-start;flex-direction: column">
+        <ButtonGroup>
+          <Button label="Previous page" icon="arrow-left" />
+          <Button label="Refresh" />
+          <Button label="Do something" />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button label="Previous page" icon="arrow-left" />
+          <Button label="Refresh" />
+          <Button label="Do something" />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" label="Previous page" icon="arrow-left" />
+          <Button size="sm" label="Do something" />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" label="Previous page" icon="arrow-left" />
+          <Button size="sm" label="Reload page" loading outline />
+          <Button size="sm" label="Do something" />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" label="Previous page" icon="arrow-left" outline />
+          <Button size="sm" label="Reload page" outline />
+          <Button size="sm" label="Do something" outline />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" label="Previous page" icon="arrow-left" outline />
+          <Button size="sm" label="Reload page" loading outline />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" label="Previous page" secondary icon="arrow-left" />
+          <Button size="sm" label="Reload page" loading secondary />
+          <Button size="sm" label="Do something" secondary />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" outline icon="archive" />
+          <Button size="sm" outline icon="bell" />
+          <Button size="sm" outline icon="calendar" />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" outline icon="archive" />
+          <Button size="sm" outline icon="calendar" />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+
+        <ButtonGroup>
+          <Button size="sm" outline icon="archive" />
+          <Button size="sm" outline icon="calendar" />
+          <Button size="sm" outline icon="arrow-right" />
+          <Button size="sm" outline icon="bluetooth" />
+          <Button size="sm" outline icon="bell" />
+        </ButtonGroup>
+        <Spacer size="sm"/>
+      </div>
+
+      <Heading size="lg">Dropdowns</Heading>
+
+      <Spacer size="lg" />
+      <div style="display: flex; justify-content: space-between; align-items: center">
+        <Dropdown :open="true">
+          <Button label="Dropdown button" />
+          <template #menu>
+            <DropdownItem header>
+              <Heading size="sm">Olá, Leandro!</Heading>
+              <Text muted :spacerAfter="false">leandrowkz@gmail.com</Text>
+            </DropdownItem>
+            <DropdownItem separator />
+            <DropdownItem icon="log-out" label="Sign out" />
+            <DropdownItem icon="archive" label="Texto bem grande" />
+            <DropdownItem icon="box" label="Texto mais grande" />
+          </template>
+        </Dropdown>
+
+        <Dropdown :open="dropdownOpen">
+          <Button label="Dropdown button" />
+          <template #menu>
+            <DropdownItem icon="settings" label="Configurações" />
+            <DropdownItem icon="log-out" label="Sign out" />
+            <DropdownItem icon="archive" label="Texto bem grande" />
+            <DropdownItem separator />
+            <DropdownItem icon="box" label="Texto mais grande" />
+          </template>
+        </Dropdown>
+
+        <Dropdown>
+          <Button label="Dropdown button" outline/>
+          <template #menu>
+            <DropdownItem icon="settings" label="Configurações" />
+            <DropdownItem icon="log-out" label="Sign out" />
+            <DropdownItem icon="archive" label="Texto bem grande, sabe" />
+            <DropdownItem icon="box" label="Texto mais grande ainda com icon" />
+          </template>
+        </Dropdown>
+
+        <Dropdown>
+          <Button label="Dropdown button" size="sm" outline/>
+          <template #menu>
+            <DropdownItem icon="settings" label="Configurações" />
+            <DropdownItem icon="log-out" label="Sign out" />
+            <DropdownItem icon="archive" label="Texto bem grande, sabe" />
+            <DropdownItem separator />
+            <DropdownItem icon="box" label="Texto mais grande ainda com icon" />
+          </template>
+        </Dropdown>
+
+        <Dropdown position="bottom-right">
+          <Button label="Dropdown right" />
+          <template #menu>
+            <DropdownItem icon="coffee" label="Make a coffee" />
+            <DropdownItem icon="dollar-sign" label="Pay-me a bill!" />
+          </template>
+        </Dropdown>
+      </div>
+
+      <Heading size="lg">Avatar Group</Heading>
+
+      <Spacer size="lg" />
+      <AvatarGroup>
+        <Avatar badge="red" :badgeNumber="1" />
+        <Avatar badge="gray" :badgeNumber="99" />
+        <Avatar icon="download" badge="green" :badgeNumber="14" />
+        <Avatar badge="gray" :badgeNumber="14">LM</Avatar>
+        <Avatar badge="red" />
+      </AvatarGroup>
+
       <Heading size="lg">Avatars</Heading>
 
       <Spacer size="lg" />
       <div style="display: flex; justify-content: space-between; align-items: center">
-        <Avatar size="sm" image="https://i.pravatar.cc/300" />
-        <Avatar size="md" image="https://i.pravatar.cc/300" />
-        <Avatar size="lg" image="https://i.pravatar.cc/300" />
-        <Avatar size="xlg" image="https://i.pravatar.cc/300" />
-        <Avatar size="xxlg" image="https://i.pravatar.cc/300" />
+        <Avatar size="sm" />
+        <Avatar size="md" />
+        <Avatar size="lg" />
+        <Avatar size="xlg" />
+        <Avatar size="xxlg" />
       </div>
 
       <Spacer size="lg" />
@@ -34,11 +282,11 @@
 
       <Spacer size="lg" />
       <div style="display: flex; justify-content: space-between; align-items: center">
-        <Avatar size="sm"  square  image="https://i.pravatar.cc/300" />
-        <Avatar size="md"  square image="https://i.pravatar.cc/300" />
-        <Avatar size="lg"  square image="https://i.pravatar.cc/300" />
-        <Avatar size="xlg" square  image="https://i.pravatar.cc/300" />
-        <Avatar size="xxlg" square  image="https://i.pravatar.cc/300" />
+        <Avatar size="sm"  square />
+        <Avatar size="md"  square />
+        <Avatar size="lg"  square />
+        <Avatar size="xlg" square />
+        <Avatar size="xxlg" square />
       </div>
 
       <Spacer size="lg" />
@@ -97,29 +345,29 @@
 
       <Spacer size="lg" />
       <div style="display: flex; justify-content: space-between; align-items: center">
-        <Avatar size="sm"  square badge="red" :badgeNumber="99" image="https://i.pravatar.cc/300"/>
-        <Avatar size="md"  square badge="green" :badgeNumber="7" image="https://i.pravatar.cc/300"/>
-        <Avatar size="lg"  square badge="gray" :badgeNumber="77" image="https://i.pravatar.cc/300"/>
-        <Avatar size="xlg" square  badge="red" :badgeNumber="84" image="https://i.pravatar.cc/300"/>
-        <Avatar size="xxlg" square  badge="green" :badgeNumber="25" image="https://i.pravatar.cc/300"/>
+        <Avatar size="sm"  square badge="red" :badgeNumber="99" />
+        <Avatar size="md"  square badge="green" :badgeNumber="7" />
+        <Avatar size="lg"  square badge="gray" :badgeNumber="77" />
+        <Avatar size="xlg" square  badge="red" :badgeNumber="84" />
+        <Avatar size="xxlg" square  badge="green" :badgeNumber="25" />
       </div>
 
       <Spacer size="lg" />
       <div style="display: flex; justify-content: space-between; align-items: center">
-        <Avatar size="sm"  badge="red" :badgeNumber="99" image="https://i.pravatar.cc/300"/>
-        <Avatar size="md"  badge="green" :badgeNumber="7" image="https://i.pravatar.cc/300"/>
-        <Avatar size="lg"  badge="gray" :badgeNumber="77" image="https://i.pravatar.cc/300"/>
-        <Avatar size="xlg"  badge="red" :badgeNumber="84" image="https://i.pravatar.cc/300"/>
-        <Avatar size="xxlg"  badge="green" :badgeNumber="25" image="https://i.pravatar.cc/300"/>
+        <Avatar size="sm"  badge="red" :badgeNumber="99" />
+        <Avatar size="md"  badge="green" :badgeNumber="7" />
+        <Avatar size="lg"  badge="gray" :badgeNumber="77" />
+        <Avatar size="xlg"  badge="red" :badgeNumber="84" />
+        <Avatar size="xxlg"  badge="green" :badgeNumber="25" />
       </div>
 
       <Spacer size="lg" />
       <div style="display: flex; justify-content: space-between; align-items: center">
-        <Avatar size="sm"  badge="red" image="https://i.pravatar.cc/300"/>
-        <Avatar size="md"  badge="green" image="https://i.pravatar.cc/300"/>
-        <Avatar size="lg"  badge="gray" image="https://loremflickr.com/640/360"/>
-        <Avatar size="xlg"  badge="red" image="https://i.pravatar.cc/300"/>
-        <Avatar size="xxlg"  badge="green" image="https://i.pravatar.cc/300"/>
+        <Avatar size="sm"  badge="red" />
+        <Avatar size="md"  badge="green"/>
+        <Avatar size="lg"  badge="gray" />
+        <Avatar size="xlg"  badge="red" />
+        <Avatar size="xxlg"  badge="green" />
       </div>
 
     </section>
@@ -295,15 +543,34 @@ import { Feather } from '@magenta/ui'
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
-import { Avatar, Button, Code, Heading, Text, Spacer } from '@magenta-ui/components'
+import {
+  Avatar,
+  AvatarGroup,
+  Button,
+  ButtonGroup,
+  Code,
+  Dropdown,
+  DropdownItem,
+  Heading,
+  Input,
+  InputPassword,
+  Text,
+  Spacer,
+} from '@magenta-ui/vue'
 
 export default defineComponent({
   components: {
     Avatar,
+    AvatarGroup,
     Button,
-    Heading,
-    Text,
+    ButtonGroup,
     Code,
+    Dropdown,
+    DropdownItem,
+    Heading,
+    Input,
+    InputPassword,
+    Text,
     Spacer,
   },
   name: 'HelloWorld',
@@ -314,6 +581,22 @@ export default defineComponent({
     }
   },
   setup: () => {
+    const dropdownOpen = ref(false)
+
+    setTimeout(() => {
+      dropdownOpen.value = true
+    }, 3000)
+
+    const reset = () => {
+      console.log('reset')
+    }
+
+    const submit = () => {
+      console.log('submit')
+    }
+
+    const form = ref({ email: 'leandro@gmail.com' })
+    const email = ref('email')
     const count = ref(0)
     const buttons = [
       {
@@ -341,7 +624,7 @@ export default defineComponent({
         danger: true,
       },
     ]
-    return { count, buttons }
+    return { count, form, buttons, dropdownOpen, reset, submit, email }
   }
 })
 </script>
