@@ -2,6 +2,25 @@
   <section class="buttons-view">
 
     <section>
+      <Heading size="lg">Grid</Heading>
+
+      <Spacer size="lg" />
+      <Grid :columns="[2, 14, 1]">
+        <Input
+          icon="user"
+          size="sm"
+          label="Nome completo"
+          placeholder="Bastião da Rocha"
+        />
+        <div />
+        <Input
+          icon="user"
+          size="sm"
+          label="Nome completo"
+          placeholder="Bastião da Rocha"
+        />
+      </Grid>
+      <Spacer size="lg" />
 
       <Heading size="lg">Form &amp; Inputs</Heading>
 
@@ -187,56 +206,56 @@
       <div style="display: flex; justify-content: space-between; align-items: center">
         <Dropdown :open="true">
           <Button label="Dropdown button" />
-          <template #menu>
-            <DropdownItem header>
+          <DropdownMenu>
+            <DropdownMenuItem header>
               <Heading size="sm">Olá, Leandro!</Heading>
               <Text muted :spacerAfter="false">leandrowkz@gmail.com</Text>
-            </DropdownItem>
-            <DropdownItem separator />
-            <DropdownItem icon="log-out" label="Sign out" />
-            <DropdownItem icon="archive" label="Texto bem grande" />
-            <DropdownItem icon="box" label="Texto mais grande" />
-          </template>
+            </DropdownMenuItem>
+            <DropdownMenuItem separator />
+            <DropdownMenuItem icon="log-out" label="Sign out" />
+            <DropdownMenuItem icon="archive" label="Texto bem grande" />
+            <DropdownMenuItem icon="box" label="Texto mais grande" />
+          </DropdownMenu>
         </Dropdown>
 
         <Dropdown :open="dropdownOpen">
           <Button label="Dropdown button" />
-          <template #menu>
-            <DropdownItem icon="settings" label="Configurações" />
-            <DropdownItem icon="log-out" label="Sign out" />
-            <DropdownItem icon="archive" label="Texto bem grande" />
-            <DropdownItem separator />
-            <DropdownItem icon="box" label="Texto mais grande" />
-          </template>
+          <DropdownMenu>
+            <DropdownMenuItem icon="settings" label="Configurações" />
+            <DropdownMenuItem icon="log-out" label="Sign out" />
+            <DropdownMenuItem icon="archive" label="Texto bem grande" />
+            <DropdownMenuItem separator />
+            <DropdownMenuItem icon="box" label="Texto mais grande" />
+          </DropdownMenu>
         </Dropdown>
 
         <Dropdown>
           <Button label="Dropdown button" outline/>
-          <template #menu>
-            <DropdownItem icon="settings" label="Configurações" />
-            <DropdownItem icon="log-out" label="Sign out" />
-            <DropdownItem icon="archive" label="Texto bem grande, sabe" />
-            <DropdownItem icon="box" label="Texto mais grande ainda com icon" />
-          </template>
+          <DropdownMenu>
+            <DropdownMenuItem icon="settings" label="Configurações" />
+            <DropdownMenuItem icon="log-out" label="Sign out" />
+            <DropdownMenuItem icon="archive" label="Texto bem grande, sabe" />
+            <DropdownMenuItem icon="box" label="Texto mais grande ainda com icon" />
+          </DropdownMenu>
         </Dropdown>
 
-        <Dropdown>
+        <Dropdown trigger="hover" position="bottom-right">
           <Button label="Dropdown button" size="sm" outline/>
-          <template #menu>
-            <DropdownItem icon="settings" label="Configurações" />
-            <DropdownItem icon="log-out" label="Sign out" />
-            <DropdownItem icon="archive" label="Texto bem grande, sabe" />
-            <DropdownItem separator />
-            <DropdownItem icon="box" label="Texto mais grande ainda com icon" />
-          </template>
+          <DropdownMenu>
+            <DropdownMenuItem icon="settings" label="Configurações" />
+            <DropdownMenuItem icon="log-out" label="Sign out" />
+            <DropdownMenuItem icon="archive" label="Texto bem grande, sabe" />
+            <DropdownMenuItem separator />
+            <DropdownMenuItem icon="box" label="Texto mais grande ainda com icon" />
+          </DropdownMenu>
         </Dropdown>
 
         <Dropdown position="bottom-right">
           <Button label="Dropdown right" />
-          <template #menu>
-            <DropdownItem icon="coffee" label="Make a coffee" />
-            <DropdownItem icon="dollar-sign" label="Pay-me a bill!" />
-          </template>
+          <DropdownMenu>
+            <DropdownMenuItem icon="coffee" label="Make a coffee" />
+            <DropdownMenuItem icon="dollar-sign" label="Pay-me a bill!" />
+          </DropdownMenu>
         </Dropdown>
       </div>
 
@@ -550,7 +569,9 @@ import {
   ButtonGroup,
   Code,
   Dropdown,
-  DropdownItem,
+  DropdownMenu,
+  DropdownMenuItem,
+  Grid,
   Heading,
   Input,
   InputPassword,
@@ -566,7 +587,9 @@ export default defineComponent({
     ButtonGroup,
     Code,
     Dropdown,
-    DropdownItem,
+    DropdownMenu,
+    DropdownMenuItem,
+    Grid,
     Heading,
     Input,
     InputPassword,
