@@ -1,18 +1,14 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import { createHead } from '@vueuse/head'
-import routes from 'virtual:generated-pages'
+import { store, key } from './store'
+import { router } from './router'
+import { head } from './utils'
+
 import App from './App.vue'
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-})
-
-const head = createHead()
 
 const app = createApp(App)
 
 app.use(head)
+app.use(store, key)
 app.use(router)
+
 app.mount('#app')

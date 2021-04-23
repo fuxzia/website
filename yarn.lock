@@ -20,12 +20,7 @@
     "@babel/helper-validator-identifier" "^7.12.11"
     to-fast-properties "^2.0.0"
 
-"@magenta-ui/styles@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@magenta-ui/styles/-/styles-0.2.1.tgz#d7f2b72fcd6655630d2990ce79a714dcc4b01bb8"
-  integrity sha512-FibeGnXfisU+6/zr+SdJc25ougwBTCk7Ft2deQ0QqCKu2YqVG//rIVQ2mH76DjG7sirgrQR/kLcxmCNRH9s9kA==
-
-"@magenta-ui/styles@^0.3.8":
+"@magenta-ui/styles@^0.3.3", "@magenta-ui/styles@^0.3.8":
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/@magenta-ui/styles/-/styles-0.3.8.tgz#62b58770249daa172bf7cc9657bac900d5d95fc2"
   integrity sha512-n2vPVeow4+vZGPcT+bCOIYRmfeJsy+U90tguDc4/Px5c6LJPoZflcooePixzVhRkez8FRsC6lSSOadxP8UDUbg==
@@ -1404,6 +1399,11 @@ vue@3.0.5:
     "@vue/compiler-dom" "3.0.5"
     "@vue/runtime-dom" "3.0.5"
     "@vue/shared" "3.0.5"
+
+vuex@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-4.0.0.tgz#ac877aa76a9c45368c979471e461b520d38e6cf5"
+  integrity sha512-56VPujlHscP5q/e7Jlpqc40sja4vOhC4uJD1llBCWolVI8ND4+VzisDVkUMl+z5y0MpIImW6HjhNc+ZvuizgOw==
 
 which-boxed-primitive@^1.0.1, which-boxed-primitive@^1.0.2:
   version "1.0.2"

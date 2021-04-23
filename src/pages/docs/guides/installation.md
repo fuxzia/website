@@ -23,20 +23,71 @@ import {
   Spacer,
   Text,
 } from '@magenta-ui/vue'
+import View from '../../../components/View.vue'
 </script>
 
-<Heading size="lg">Installation</Heading>
+<View>
+  <Heading size="lg">Installation</Heading>
 
-<Text>Magenta UI is designed to be used with <strong>Vue 3</strong>.</Text>
+  <Text>Magenta UI is designed to be used with <strong>Vue 3</strong>.</Text>
 
-<Heading size="md">
-  Working with Vite
-</Heading>
+  <Heading size="md">
+    Working with Vite
+  </Heading>
 
-<Text>
-  When working with Vite you must mark some Magenta UI depencies to be bundled by Vite. You do that by:
-</Text>
+  <Text>
+    When working with Vite you must mark some Magenta UI depencies to be bundled by Vite. You do that by:
+  </Text>
 
-<Code language="javascript">
-  {{frontmatter.code_vite}}
-</Code>
+  <Code language="javascript">
+    {{frontmatter.code_vite}}
+  </Code>
+
+  <Heading size="lg">Installation</Heading>
+
+  <Text>Magenta UI is designed to be used with <strong>Vue 3</strong>.</Text>
+
+  <Heading size="md">
+    Working with Vite
+  </Heading>
+
+  <Text>
+    When working with Vite you must mark some Magenta UI depencies to be bundled by Vite. You do that by:
+  </Text>
+
+  <Code language="javascript">
+    {{frontmatter.code_vite}}
+  </Code>
+
+  <Heading size="lg">Installation</Heading>
+
+  <Text>Magenta UI is designed to be used with <strong>Vue 3</strong>.</Text>
+
+  <Heading size="md">
+    Working with Vite
+  </Heading>
+
+  <Text>
+    When working with Vite you must mark some Magenta UI depencies to be bundled by Vite. You do that by:
+  </Text>
+
+  <Code language="javascript">
+    {{frontmatter.code_vite}}
+  </Code>
+
+  <Heading size="lg">Installation</Heading>
+
+  <Text>Magenta UI is designed to be used with <strong>Vue 3</strong>.</Text>
+
+  <Heading size="md">
+    Working with Vite
+  </Heading>
+
+  <Text>
+    When working with Vite you must mark some Magenta UI depencies to be bundled by Vite. You do that by:
+  </Text>
+
+  <Code language="javascript">
+    {{frontmatter.code_vite}}
+  </Code>
+</View>

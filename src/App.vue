@@ -10,10 +10,3 @@ export default defineComponent({
   name: 'App',
 })
 </script>
-
-<style>
-#app {
-  padding: 30PX;
-  margin-top: 60px;
-}
-</style>
