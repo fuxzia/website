@@ -31,9 +31,9 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
-@import '../assets/scss/styles.scss';
+@import '../assets/scss/variables.scss';
 
 .site-header {
   height: $header-height;
@@ -47,8 +47,8 @@ export default defineComponent({
   justify-content: center;
   background: white;
   box-shadow: $header-shadow;
-  border-top: 8px solid $primary-color;
-  border-bottom: 8px solid white;
+  border-top: 6px solid $primary-color;
+  border-bottom: 6px solid white;
 
   &-container {
     display: flex;

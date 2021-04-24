@@ -42,8 +42,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-@import '../assets/scss/styles.scss';
+<style lang="scss" scoped>
+@import '../assets/scss/variables.scss';
 
 .site-view {
   display: flex;

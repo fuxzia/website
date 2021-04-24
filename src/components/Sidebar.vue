@@ -34,7 +34,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/styles.scss';
+@import '../assets/scss/variables.scss';
 
 .site-sidebar {
   position: fixed;
