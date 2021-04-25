@@ -8,8 +8,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@magenta-ui/styles": "^0.3.3",
-    "@magenta-ui/vue": "^0.3.3",
+    "@magenta-ui/styles": "^0.3.8",
+    "@magenta-ui/vue": "^0.3.8",
     "@vueuse/head": "^0.5.1",
     "vue": "3.0.11",
     "vue-router": "4",

@@ -8,13 +8,13 @@
       <span>
         {{ item.label }}
       </span>
-      <router-link
+      <Link
         v-for="(menu, i) in item.children"
         :key="i"
         :to="menu.link"
       >
         {{ menu.label }}
-      </router-link>
+      </Link>
     </div>
   </div>
 </template>
@@ -22,9 +22,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useStore } from '../store'
+import { Link } from '@magenta-ui/vue'
 
 export default defineComponent({
   name: 'Sidebar',
+  components: {
+    Link,
+  },
   setup: () => {
     const store = useStore()
 
@@ -48,11 +52,22 @@ export default defineComponent({
     > span {
       font-weight: bold;
       display: flex;
+      margin-bottom: $spacing-xs;
+      color: $font-color-contrast;
     }
 
-    > a {
+    :deep(.mag-link) {
       display: flex;
       line-height: 2;
+      color: $font-color-base;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      &.mag-link-active {
+        color: $primary-color;
+      }
     }
   }
 }

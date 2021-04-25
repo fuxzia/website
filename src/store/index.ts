@@ -6,6 +6,7 @@ export type MenuLink = {
   link?: string
   label: string
   target?: string
+  external?: boolean
   children?: MenuLink[]
 }
 
@@ -23,8 +24,12 @@ export const store = createStore<State>({
   state: {
     menus: [
       {
-        link: '/docs',
         label: 'Documentation',
+        link: '/docs/guides',
+      },
+      {
+        label: 'Github',
+        link: 'https://github.com/magenta-ui/magenta',
       },
     ],
     sidebar: [
@@ -33,27 +38,27 @@ export const store = createStore<State>({
         children: [
           {
             label: 'Installation',
-            link: '/guides/installation',
+            link: '/docs/guides/installation',
           },
           {
             label: 'Quick start',
-            link: '/guides/quick-start',
+            link: '/docs/guides/quick-start',
           },
           {
             label: 'Custom theme',
-            link: '/guides/custom-theme',
+            link: '/docs/guides/custom-theme',
           },
           {
             label: 'Internationalization',
-            link: '/guides/internationalization',
+            link: '/docs/guides/internationalization',
           },
           {
             label: 'CSS classes',
-            link: '/guides/css-classes',
+            link: '/docs/guides/css-classes',
           },
           {
             label: 'Colors',
-            link: '/guides/colors',
+            link: '/docs/guides/colors',
           },
         ]
       },
@@ -62,7 +67,7 @@ export const store = createStore<State>({
         children: [
           {
             label: 'Button',
-            link: 'docs/components/button',
+            link: '/docs/components/button',
           },
           {
             label: 'ButtonGroup',

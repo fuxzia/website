@@ -1,17 +1,19 @@
 <template>
   <div class="site-header">
     <div class="site-header-container">
-      <router-link to="/" class="site-header-logo">
+      <Link to="/" class="site-header-logo">
         <img src="../assets/images/logo.svg" />
-      </router-link>
+      </Link>
       <div class="site-header-menu">
-        <router-link
+        <Link
           v-for="(menu, i) in store.state.menus"
           :key="i"
           :to="menu.link"
+          :target="menu.link.startsWith('http') ? '_blank' : null"
+          :class="getMenuClasses(menu)"
         >
           {{ menu.label }}
-        </router-link>
+        </Link>
       </div>
     </div>
   </div>
@@ -19,14 +21,26 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useStore } from '../store'
+import { MenuLink, useStore } from '../store'
+import { useRoute } from 'vue-router'
+import { Link } from '@magenta-ui/vue'
 
 export default defineComponent({
   name: 'Header',
+  components: {
+    Link,
+  },
   setup: () => {
     const store = useStore()
+    const route = useRoute()
 
-    return { store }
+    const getMenuClasses = (menu: MenuLink) => {
+      return {
+        'mag-link-active': route.path.startsWith(menu.link!)
+      }
+    }
+
+    return { store, getMenuClasses }
   }
 })
 </script>
@@ -59,10 +73,25 @@ export default defineComponent({
     margin: 0 $container-padding;
   }
 
-  &-logo {
+  &:deep(.site-header-logo) {
     line-height: 0;
     img {
       width: 30px !important;
+    }
+  }
+
+  &-menu {
+    :deep(.mag-link) {
+      margin-left: $spacing-md;
+      color: $font-color-base;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      &.mag-link-active {
+        color: $primary-color;
+      }
     }
   }
 }
