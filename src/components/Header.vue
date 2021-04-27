@@ -1,18 +1,21 @@
 <template>
   <div class="site-header">
     <div class="site-header-container">
-      <Link to="/" class="site-header-logo">
-        <img src="../assets/images/logo.svg" />
-      </Link>
+      <slot name="logo">
+        <Link to="/" class="site-header-logo">
+          <img src="../assets/images/logo-complete.svg" />
+        </Link>
+      </slot>
       <div class="site-header-menu">
         <Link
-          v-for="(menu, i) in store.state.menus"
+          v-for="(menu, i) in menus"
           :key="i"
           :to="menu.link"
           :target="menu.link.startsWith('http') ? '_blank' : null"
           :class="getMenuClasses(menu)"
         >
-          {{ menu.label }}
+          <Button v-if="menu.button" :label="menu.label" secondary />
+          <span v-else>{{ menu.label }}</span>
         </Link>
       </div>
     </div>
@@ -20,14 +23,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { MenuLink, useStore } from '../store'
 import { useRoute } from 'vue-router'
-import { Link } from '@magenta-ui/vue'
+import { Button, Link } from '@magenta-ui/vue'
 
 export default defineComponent({
   name: 'Header',
   components: {
+    Button,
     Link,
   },
   setup: () => {
@@ -40,7 +44,11 @@ export default defineComponent({
       }
     }
 
-    return { store, getMenuClasses }
+    const menus = computed(() => {
+      return store.state.menus.filter((item: MenuLink) => !item.button)
+    })
+
+    return { menus, getMenuClasses }
   }
 })
 </script>
@@ -76,7 +84,7 @@ export default defineComponent({
   &:deep(.site-header-logo) {
     line-height: 0;
     img {
-      width: 30px !important;
+      height: 30px !important;
     }
   }
 

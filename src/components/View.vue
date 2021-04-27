@@ -1,6 +1,10 @@
 <template>
   <div :class="computedClasses">
-    <Header />
+    <Header>
+      <template #logo>
+        <slot name="logo"/>
+      </template>
+    </Header>
     <div class="site-view-wrapper">
       <Sidebar v-if="sidebar" />
       <div class="site-view-content">
@@ -52,6 +56,7 @@ export default defineComponent({
 
   &.has-sidebar {
     .site-view-content {
+      max-width: $content-width;
       margin-left: $sidebar-width + $container-padding;
     }
   }
@@ -67,7 +72,7 @@ export default defineComponent({
   }
 
   &-content {
-    max-width: $content-width;
+    width: 100%;
   }
 }
 </style>

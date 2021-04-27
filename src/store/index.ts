@@ -7,6 +7,7 @@ export type MenuLink = {
   label: string
   target?: string
   external?: boolean
+  button?: boolean
   children?: MenuLink[]
 }
 
@@ -30,6 +31,11 @@ export const store = createStore<State>({
       {
         label: 'Github',
         link: 'https://github.com/magenta-ui/magenta',
+      },
+      {
+        label: 'Be a Sponsor 🚀',
+        link: 'https://github.com/magenta-ui/magenta',
+        button: true,
       },
     ],
     sidebar: [
