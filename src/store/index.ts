@@ -26,7 +26,7 @@ export const store = createStore<State>({
     menus: [
       {
         label: 'Documentation',
-        link: '/docs/guides',
+        link: '/docs',
       },
       {
         label: 'Github',
