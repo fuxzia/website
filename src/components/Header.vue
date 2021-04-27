@@ -45,7 +45,9 @@ export default defineComponent({
     }
 
     const menus = computed(() => {
-      return store.state.menus.filter((item: MenuLink) => !item.button)
+      return route.path !== '/'
+        ? store.state.menus
+        : store.state.menus.filter((item: MenuLink) => !item.button)
     })
 
     return { menus, getMenuClasses }
