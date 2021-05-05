@@ -40,7 +40,7 @@ export const store = createStore<State>({
     ],
     sidebar: [
       {
-        label: 'Development guide',
+        label: 'Guides',
         children: [
           {
             label: 'Installation',

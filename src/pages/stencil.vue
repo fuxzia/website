@@ -1,5 +1,13 @@
 <template>
-  <section class="buttons-view">
+  <View class="view-stencil">
+
+    <section>
+      <Heading size="lg">Table</Heading>
+
+      <Table :columns="columns" :data="data" />
+      <Spacer size="lg" />
+
+    </section>
 
     <section>
       <Heading size="lg">Grid</Heading>
@@ -557,10 +565,11 @@ import { Feather } from '@magenta/ui'
       </div>
     </section>
 
-  </section>
+  </View>
 </template>
 
 <script lang="ts">
+import * as faker from 'faker'
 import { ref, defineComponent } from 'vue'
 import {
   Avatar,
@@ -577,7 +586,10 @@ import {
   InputPassword,
   Text,
   Spacer,
+  Table,
 } from '@magenta-ui/vue'
+import { Column, Data } from '@magenta-ui/types/Table' 
+import View from '../components/View.vue'
 
 export default defineComponent({
   components: {
@@ -595,14 +607,10 @@ export default defineComponent({
     InputPassword,
     Text,
     Spacer,
+    View,
+    Table,
   },
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
+  name: 'Stencil',
   setup: () => {
     const dropdownOpen = ref(false)
 
@@ -647,7 +655,73 @@ export default defineComponent({
         danger: true,
       },
     ]
-    return { count, form, buttons, dropdownOpen, reset, submit, email }
+
+    const columns: Column[] = [
+      {
+        key: 'id',
+        label: '#',
+        width: 100,
+        fixed: true,
+      },
+      {
+        key: 'email',
+        label: 'Email',
+        width: 200,
+        fixed: true,
+      },
+      {
+        key: 'name',
+        label: 'Name',
+      },
+      {
+        key: 'bio',
+        label: 'bio',
+        width: 400,
+      },
+      {
+        key: 'address',
+        label: 'Address',
+        width: 400,
+      },
+      {
+        key: 'birthday',
+        label: 'Birthday',
+        width: 400,
+      },
+      {
+        key: 'avatar',
+        label: 'Avatar',
+      },
+    ]
+
+    type Row = {
+      id: string,
+      email: string,
+      name: string,
+      address: string,
+      bio: string,
+      avatar: string,
+      birthday: string,
+    }
+
+    const data: Data<Row> = [];
+
+    const randomnumber = Math.floor(Math.random() * (50 - 10 + 1)) + 10;
+
+    for (let i = 0; i <randomnumber; i++) {
+      const user: Row = {
+        id: faker.random.alpha({ count: 10 }),
+        email: faker.internet.email(),
+        name: faker.name.firstName(),
+        avatar: faker.internet.avatar(),
+        bio: faker.lorem.sentences(2),
+        birthday: faker.date.past().toString(),
+        address: faker.address.city(),
+      }
+      data.push(user)
+    }
+
+    return { count, form, buttons, dropdownOpen, reset, submit, email, columns, data }
   }
 })
 </script>
