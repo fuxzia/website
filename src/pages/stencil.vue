@@ -2,37 +2,29 @@
   <View class="view-stencil">
 
     <section>
-      <Heading size="lg">Table</Heading>
-
-      <Table :columns="columns" :data="data" />
-      <Spacer size="lg" />
-
-    </section>
-
-    <section>
-      <Heading size="lg">Grid</Heading>
-
-      <Spacer size="lg" />
-      <Grid :columns="[2, 14, 1]">
-        <Input
-          icon="user"
-          size="sm"
-          label="Nome completo"
-          placeholder="Bastião da Rocha"
-        />
-        <div />
-        <Input
-          icon="user"
-          size="sm"
-          label="Nome completo"
-          placeholder="Bastião da Rocha"
-        />
-      </Grid>
-      <Spacer size="lg" />
-
       <Heading size="lg">Form &amp; Inputs</Heading>
 
       <Spacer size="lg" />
+      <div>
+        <div style="width:100%">
+          <Checkbox size="sm" disabled />
+          <Checkbox size="sm" disabled>
+            Desejo receber publicidade vinculada a minha imagem.
+          </Checkbox>
+          <Checkbox size="sm">
+            Desejo receber publicidade vinculada a minha imagem.
+          </Checkbox>
+          <Checkbox>
+            Aceito os termos descritos na <Link>Politica de Privacidade</Link>.
+          </Checkbox>
+          <Checkbox v-model="check" size="lg">
+            Atesto que li o formulário de requisição de oportunidade {{ check }}.
+          </Checkbox>
+          <Spacer size="lg" />
+        </div>
+        
+        <Spacer size="lg" />
+      </div>
       <div>
         <div style="width:100%">
           <Input
@@ -133,6 +125,36 @@
         <Spacer size="sm"/>
 
       </div>
+    </section>
+
+    <section>
+      <Heading size="lg">Table</Heading>
+
+      <Table :columns="columns" :data="data" selectable />
+      <Spacer size="lg" />
+
+    </section>
+
+    <section>
+      <Heading size="lg">Grid</Heading>
+
+      <Spacer size="lg" />
+      <Grid :columns="[2, 14, 1]">
+        <Input
+          icon="user"
+          size="sm"
+          label="Nome completo"
+          placeholder="Bastião da Rocha"
+        />
+        <div />
+        <Input
+          icon="user"
+          size="sm"
+          label="Nome completo"
+          placeholder="Bastião da Rocha"
+        />
+      </Grid>
+      <Spacer size="lg" />
 
       <Heading size="lg">Button Group</Heading>
 
@@ -576,6 +598,7 @@ import {
   AvatarGroup,
   Button,
   ButtonGroup,
+  Checkbox,
   Code,
   Dropdown,
   DropdownMenu,
@@ -584,6 +607,7 @@ import {
   Heading,
   Input,
   InputPassword,
+  Link,
   Text,
   Spacer,
   Table,
@@ -597,6 +621,7 @@ export default defineComponent({
     AvatarGroup,
     Button,
     ButtonGroup,
+    Checkbox,
     Code,
     Dropdown,
     DropdownMenu,
@@ -605,6 +630,7 @@ export default defineComponent({
     Heading,
     Input,
     InputPassword,
+    Link,
     Text,
     Spacer,
     View,
@@ -626,6 +652,7 @@ export default defineComponent({
       console.log('submit')
     }
 
+    const check = ref(true)
     const form = ref({ email: 'leandro@gmail.com' })
     const email = ref('email')
     const count = ref(0)
@@ -721,7 +748,7 @@ export default defineComponent({
       data.push(user)
     }
 
-    return { count, form, buttons, dropdownOpen, reset, submit, email, columns, data }
+    return { check, count, form, buttons, dropdownOpen, reset, submit, email, columns, data }
   }
 })
 </script>

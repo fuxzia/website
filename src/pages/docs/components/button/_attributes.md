@@ -1,16 +1,19 @@
 <script setup>
-import { Table, Text, Heading, Spacer, Code } from '@magenta-ui/vue'
+import { Button, Table, Text, Heading, Spacer, Code } from '@magenta-ui/vue'
 
 const columns = [
   {
     key: 'attribute',
     label: 'Attribute',
     width: 200,
+    fixed: true,
+    sortable: true,
   },
   {
     key: 'description',
     label: 'Description',
     width: 130,
+    sortable: true,
   },
   {
     key: 'description2',
@@ -19,27 +22,50 @@ const columns = [
   {
     key: 'description3',
     label: 'Description3',
-    width: 400,
+    width: 200,
+    sortable: true,
+    fixed: true,
   },
   {
     key: 'type',
     label: 'Type',
-    fixed: true,
     width: 100,
+    sortable: true,
   },
   {
     key: 'accepted',
     label: 'Accepted',
-    fixed: true,
     width: 100,
   },
   {
     key: 'default',
     label: 'Default',
   },
+  {
+    key: 'actions',
+    label: 'Actions',
+  },
 ]
 
 const data = [
+  {
+    attribute: 'circle',
+    description: 'Set button shape to circle.',
+    description2: 'Set button shape to circle.',
+    description3: 'Set button shape to circle.',
+    type: 'boolean',
+    accepted: '-',
+    default: 'false',
+  },
+  {
+    attribute: 'type',
+    description: 'Set button shape to circle.',
+    description2: 'Set button shape to circle.',
+    description3: 'Set button shape to circle.',
+    type: 'boolean',
+    accepted: '-',
+    default: 'false',
+  },
   {
     attribute: 'size',
     description: 'Button size.',
@@ -50,13 +76,22 @@ const data = [
     default: 'md',
   },
   {
-    attribute: 'circle',
-    description: 'Set button shape to circle.',
-    description2: 'Set button shape to circle.',
-    description3: 'Set button shape to circle.',
-    type: 'boolean',
-    accepted: '-',
-    default: 'false',
+    attribute: 'label',
+    description: 'Button label.',
+    description2: 'Button label.',
+    description3: 'Button label.',
+    type: 'string',
+    accepted: '',
+    default: '',
+  },
+  {
+    attribute: 'label2',
+    description: 'Button label.',
+    description2: 'Button label.',
+    description3: 'Button label.',
+    type: 'string',
+    accepted: '',
+    default: '',
   },
 ]
 </script>
@@ -67,7 +102,7 @@ const data = [
   Attributes
 </Heading>
 
-<Table :columns="columns" :data="data" :ellipsis="true">
+<Table :columns="columns" :data="data" hoverable bordered rounded selectable>
   <template #attribute="{ item }">
     {{ item.attribute }}
   </template>
@@ -79,6 +114,9 @@ const data = [
   </template>
   <template #default="{ item }">
     <Text code :spacer-after="false">{{ item.default }}</Text>
+  </template>
+  <template #actions="{ item }">
+    <Button size="sm" :data-id="item.id">Editar</Button>
   </template>
   <template #description3="{ item }">
     <pre>
