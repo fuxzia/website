@@ -130,7 +130,7 @@
     <section>
       <Heading size="lg">Table</Heading>
 
-      <Table :columns="columns" :data="data" selectable />
+      <Table :columns="columns" :data="data" selectable rounded hoverable bordered @select="selectTable" />
       <Spacer size="lg" />
 
     </section>
@@ -689,21 +689,25 @@ export default defineComponent({
         label: '#',
         width: 100,
         fixed: true,
+        sortable: true,
       },
       {
         key: 'email',
-        label: 'Email',
+        label: 'Email such a long long title',
         width: 200,
-        fixed: true,
+        // fixed: true,
+        sortable: true,
       },
       {
         key: 'name',
         label: 'Name',
+        align: 'right',
       },
       {
         key: 'bio',
         label: 'bio',
         width: 400,
+        align: 'center',
       },
       {
         key: 'address',
@@ -748,7 +752,11 @@ export default defineComponent({
       data.push(user)
     }
 
-    return { check, count, form, buttons, dropdownOpen, reset, submit, email, columns, data }
+    const selectTable = (data: any) => {
+      console.log(data)
+    }
+
+    return { check, count, form, buttons, dropdownOpen, reset, submit, email, columns, data, selectTable }
   }
 })
 </script>
