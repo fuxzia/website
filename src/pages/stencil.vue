@@ -130,7 +130,20 @@
     <section>
       <Heading size="lg">Table</Heading>
 
-      <Table :columns="columns" :data="data" selectable rounded hoverable bordered @select="selectTable" />
+      <Table
+        :columns="columns"
+        :data="data"
+        selectable
+        collapsible
+        rounded
+        hoverable
+        bordered
+        @select="selectTable"
+      >
+        <template #row-collapsed="{ item }">
+          <Heading>{{ item.id }}</Heading>
+        </template>
+      </Table>
       <Spacer size="lg" />
 
     </section>
