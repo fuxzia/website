@@ -2,6 +2,28 @@
   <View class="view-stencil">
 
     <section>
+      <Heading size="lg">Table</Heading>
+
+      <Table
+        :columns="columns"
+        :data="data"
+        selectable
+        collapsible
+        rounded
+        hoverable
+        bordered
+        @select="selectTable"
+      >
+        <template #row-collapsed="{ item }">
+          <Heading>{{ item.id }}</Heading>
+          <Heading>{{ item.bio }}</Heading>
+        </template>
+      </Table>
+      <Spacer size="lg" />
+
+    </section>
+
+    <section>
       <Heading size="lg">Form &amp; Inputs</Heading>
 
       <Spacer size="lg" />
@@ -125,27 +147,6 @@
         <Spacer size="sm"/>
 
       </div>
-    </section>
-
-    <section>
-      <Heading size="lg">Table</Heading>
-
-      <Table
-        :columns="columns"
-        :data="data"
-        selectable
-        collapsible
-        rounded
-        hoverable
-        bordered
-        @select="selectTable"
-      >
-        <template #row-collapsed="{ item }">
-          <Heading>{{ item.id }}</Heading>
-        </template>
-      </Table>
-      <Spacer size="lg" />
-
     </section>
 
     <section>
@@ -625,7 +626,7 @@ import {
   Spacer,
   Table,
 } from '@magenta-ui/vue'
-import { Column, Data } from '@magenta-ui/types/Table' 
+import { TableAlignments, TableColumn, TableData } from '@magenta-ui/types' 
 import View from '../components/View.vue'
 
 export default defineComponent({
@@ -696,7 +697,7 @@ export default defineComponent({
       },
     ]
 
-    const columns: Column[] = [
+    const columns: TableColumn[] = [
       {
         key: 'id',
         label: '#',
@@ -714,13 +715,13 @@ export default defineComponent({
       {
         key: 'name',
         label: 'Name',
-        align: 'right',
+        align: TableAlignments.Right,
       },
       {
         key: 'bio',
         label: 'bio',
         width: 400,
-        align: 'center',
+        align: TableAlignments.Center,
       },
       {
         key: 'address',
@@ -748,7 +749,7 @@ export default defineComponent({
       birthday: string,
     }
 
-    const data: Data<Row> = [];
+    const data: TableData<Row> = [];
 
     const randomnumber = Math.floor(Math.random() * (50 - 10 + 1)) + 10;
 
